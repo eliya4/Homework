@@ -14,10 +14,13 @@ import java.util.ArrayList;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> {
     Context context;
+    Context context2;
     ArrayList<CardModel> models;
 
-    public CardAdapter(Context context, ArrayList<CardModel> models) {
+    public CardAdapter(MainActivity mainActivity, Context context, ArrayList<CardModel> models) {
+
         this.context = context;
+        this.context2= context2;
         this.models = models;
     }
 
@@ -25,14 +28,17 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     @Override
     public CardAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
+        LayoutInflater inflater2 = LayoutInflater.from(context2);
         View view = inflater.inflate(R.layout.row_layout,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CardAdapter.MyViewHolder holder, int position) {
-        holder.text.setText(models.get(position).image);
+        holder.text.setText(models.get(position).text);
+        holder.text2.setText(models.get(position).text2);
         holder.iv.setImageResource(models.get(position).image);
+
 
     }
 
@@ -42,12 +48,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     }
     static  public  class  MyViewHolder extends  RecyclerView.ViewHolder{
         TextView text;
+        TextView text2;
         ImageView iv;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             //this is like OnCreate
             text= itemView.findViewById(R.id.textView);
+            text2=itemView.findViewById(R.id.textView);
             iv = itemView.findViewById(R.id.imageView2);
         }
     }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -25,19 +26,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUpModels();
-        adapter = new CardAdapter(this, models);
+        adapter = new CardAdapter(this, this, models);
         RecyclerView recyclerView = findViewById(R.id.r1);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
-    private void  setUpModels()
+    private void setUpModels()
     {
-        String[] texts= getResources().getStringArray(R.array.items_array);
-        for(int i=0;i<texts.length;i++)
+        String[]texts= getResources().getStringArray(R.array.numbers);
+        String[]texts2= getResources().getStringArray(R.array.numbersOppsite);
+        for(int i=0; i<texts.length; i++)
         {
-            models.add(new CardModel(texts[i],images[i]));
+            models.add(new CardModel(texts[i],images[i], texts2[i]));
         }
     }
 }

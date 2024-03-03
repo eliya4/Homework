@@ -5,20 +5,21 @@ public class CardModel {
     String text2;
     int image;
 
-    public CardModel(String text, int image) {
+    public CardModel(String text, int image, String text2) {
         this.text = text;
-        this.text2=text2;
+        this.text2 = text2;
         this.image = image;
     }
 
-    public String getText() {
+    public String GetText() {
         return text;
     }
-    public String getText2() {
+
+    public String GetText2() {
         return text2;
     }
 
-    public int getImage() {
+    public int GetImage() {
         return image;
     }
 }
