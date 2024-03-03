@@ -17,12 +17,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     Context context2;
     ArrayList<CardModel> models;
 
-    public CardAdapter(MainActivity mainActivity, Context context, ArrayList<CardModel> models) {
-
+    public CardAdapter(Context context, Context context2, ArrayList<CardModel> models) {
         this.context = context;
-        this.context2= context2;
+        this.context2 = context2;
         this.models = models;
     }
+
 
     @NonNull
     @Override
